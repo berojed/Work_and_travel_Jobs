@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">W&amp;t Jobs</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="welcomemessage">Dobrodosli u Work and travel Jobs!</string>
+    <string name="password">password\n</string>
+    <string name="register">register</string>
+    <string name="donthaveaccount">Nemaš račun? Napravi ga ovdje.</string>
+    <string name="logout">Odjava</string>
+    <string name="title_activity_main_page">MainPage</string>
+    <string name="title_home">Početna</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_jobs">Poslovi</string>
+    <string name="title_job_applications">Moje prijave</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="apply">Dostupni poslovi</string>
+    <string name="prijava">Prijava</string>
+    <string name="moje_konekcije">Moje konekcije</string>
+</resources>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "19266452405",
+    "firebase_url": "https://workandtravel-jobs-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "workandtravel-jobs",
+    "storage_bucket": "workandtravel-jobs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19266452405:android:ba5e4c5bf1596bf22037fc",
+        "android_client_info": {
+          "package_name": "com.example.wtjobs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMJquhldoO7PIs6Kvbex6Cg3ijfRdMGeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
