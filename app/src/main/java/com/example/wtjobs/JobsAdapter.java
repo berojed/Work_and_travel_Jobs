@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,8 +36,10 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull JobsViewHolder holder, int position) {
+
             //Dohvaćanje odgovarajućih podataka za pojedinačnu stavku i postavljanje u odgovarajući textView
             holder.jobDescription.setText("Opis: "+jobList.get(position).getJobDescription());
+
             holder.jobLocation.setText(jobList.get(position).getJobLocation());
 
             //Provjera za poziciju(server,busser,bartender i foodrunner dobivaju tipse) i postavljanje odgovarajuće satnice
@@ -44,9 +47,25 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
                  holder.jobWage.setText("Satnica: " + jobList.get(position).getJobWage() + " $/h + tips");
             else
                 holder.jobWage.setText("Satnica: " + jobList.get(position).getJobWage() + " $/h");
+
             holder.jobTitle.setText("Pozicija: " + jobList.get(position).getJobTitle());
             //Korištenje picasso biblioteke za učitavanje slika posla sa URL-om iz jobList i postavljanje u ImageView jobImage, dok se učitava slika prikazuje se loading_icon
             Picasso.get().load(jobList.get(position).getJobImage()).placeholder(R.drawable.loading_icon).into(holder.jobImage);
+
+            holder.btnApplyJob.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(fragment instanceof JobsFragment)
+                    {
+                        int position= holder.getBindingAdapterPosition();
+                        ((JobsFragment) fragment).applyForJob(
+                                jobList.get(position).getJobTitle(),
+                                jobList.get(position).getJobLocation()
+                        );
+
+                    }
+                }
+            });
 
     }
 
@@ -64,6 +83,8 @@ class JobsViewHolder extends RecyclerView.ViewHolder {
 
      public ImageView jobImage;
 
+     public Button btnApplyJob;
+
     public JobsViewHolder(@NonNull View itemView) {
         super(itemView);
         //Čuvanje  referenci svih viewova u jednom view holderu RecyclerView-a pomoću metode findViewById()
@@ -72,6 +93,7 @@ class JobsViewHolder extends RecyclerView.ViewHolder {
         jobWage=itemView.findViewById(R.id.textViewJobWage);
         jobTitle=itemView.findViewById(R.id.textViewJobTitle);
         jobImage=itemView.findViewById(R.id.job_picture);
+        btnApplyJob=itemView.findViewById(R.id.btnApplytoJob);
     }
 
 }

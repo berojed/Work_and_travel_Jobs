@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,7 +15,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -68,8 +73,48 @@ public class JobsFragment extends Fragment {
             }
         });
 
-
         return view;
+    }
+
+    public void applyForJob(String jobTitle, String jobLocation)
+    {
+        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        if(currentUser!=null)
+        {
+            String uid= currentUser.getUid();
+            String userGmail= currentUser.getEmail();
+            String jobTitlee=jobTitle.toString();
+            String jobLocationn=jobLocation.toString();
+
+            DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference("applications").child(uid);
+
+            String applicationID=databaseReference1.push().getKey();
+
+            JobApplications jobApplications=new JobApplications(userGmail,jobTitlee,jobLocationn);
+
+
+                databaseReference1.child(applicationID).setValue(jobApplications)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful())
+                                {
+                                    Toast.makeText(getContext(),"Prijava uspješno poslana",Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    Toast.makeText(getContext(),"Prijava nije poslana",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+
+
+
+
+        }
+
+
     }
 
 }
