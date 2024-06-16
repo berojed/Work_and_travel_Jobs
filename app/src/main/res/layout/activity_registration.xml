@@ -10,14 +10,18 @@
 
 
     <TextView
-        android:layout_width="52dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="150dp"
-        android:text="@string/register" />
+        android:text="@string/registracija"
+        android:layout_marginTop="150dp"
+        android:textAlignment="center"
+        android:textSize="45sp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:padding="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
@@ -30,13 +34,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password">
+            android:hint="@string/password"
+            android:inputType="textPassword">
         </com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -52,8 +58,9 @@
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:layout_marginLeft="150dp"/>
+        android:text="@string/registracija"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="25dp"/>
 
 
 

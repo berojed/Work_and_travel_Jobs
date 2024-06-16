@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/myApplicationsJob"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/myApplicationsLocation"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/myApplicationsJob"
+                android:layout_marginBottom="20dp"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/btnDeleteApplication"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginTop="100dp"
+                android:text="@string/obri_ite_prijavu"
+                android:textAlignment="center"
+                android:layout_marginStart="95dp" />
+
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

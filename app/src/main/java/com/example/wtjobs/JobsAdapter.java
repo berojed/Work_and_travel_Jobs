@@ -1,5 +1,6 @@
 package com.example.wtjobs;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +51,7 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
 
             holder.jobTitle.setText("Pozicija: " + jobList.get(position).getJobTitle());
             //Korištenje picasso biblioteke za učitavanje slika posla sa URL-om iz jobList i postavljanje u ImageView jobImage, dok se učitava slika prikazuje se loading_icon
-            Picasso.get().load(jobList.get(position).getJobImage()).placeholder(R.drawable.loading_icon).into(holder.jobImage);
+            Picasso.get().load(jobList.get(position).getJobImage()).into(holder.jobImage);
 
             holder.btnApplyJob.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -58,10 +59,15 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
                     if(fragment instanceof JobsFragment)
                     {
                         int position= holder.getBindingAdapterPosition();
-                        ((JobsFragment) fragment).applyForJob(
-                                jobList.get(position).getJobTitle(),
-                                jobList.get(position).getJobLocation()
-                        );
+                        String jobTitle=jobList.get(position).getJobTitle();
+                        String jobLocation=jobList.get(position).getJobLocation();
+
+
+                        new AlertDialog.Builder(v.getContext()).setTitle("Potvrda prijave").setMessage("Da li ste sigurni da želite prijaviti za posao "+jobTitle+" u "+jobLocation+"?")
+                                .setPositiveButton("Da", (dialog, which) -> {
+                                    ((JobsFragment) fragment).applyForJob(jobTitle, jobLocation);
+                                }
+                                ).setNegativeButton("Ne", null).show();
 
                     }
                 }

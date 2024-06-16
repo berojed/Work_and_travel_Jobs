@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -86,6 +87,7 @@ public class JobsFragment extends Fragment {
             String jobTitlee=jobTitle.toString();
             String jobLocationn=jobLocation.toString();
 
+
             DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference("applications").child(uid);
 
             String applicationID=databaseReference1.push().getKey();
@@ -107,14 +109,6 @@ public class JobsFragment extends Fragment {
                                 }
                             }
                         });
-
-
-
-
-
         }
-
-
     }
-
 }

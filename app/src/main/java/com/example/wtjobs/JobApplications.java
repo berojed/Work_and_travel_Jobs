@@ -16,10 +16,7 @@ public class JobApplications {
         return userGmail;
     }
 
-    public String getJobTitlee() {
-        return jobTitlee;
-
-    }
+    public String getJobTitlee() {return jobTitlee;}
     public String getJobLocationn() {
         return jobLocationn;
     }

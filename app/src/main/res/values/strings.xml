@@ -5,7 +5,7 @@
     <string name="welcomemessage">Dobrodosli u Work and travel Jobs!</string>
     <string name="password">password\n</string>
     <string name="register">register</string>
-    <string name="donthaveaccount">Nemaš račun? Napravi ga ovdje.</string>
+    <string name="donthaveaccount">Nemate račun? Napravite ga ovdje.</string>
     <string name="logout">Odjava</string>
     <string name="title_activity_main_page">MainPage</string>
     <string name="title_home">Početna</string>
@@ -18,4 +18,12 @@
     <string name="apply">Dostupni poslovi</string>
     <string name="prijava">Prijava</string>
     <string name="moje_konekcije">Moje konekcije</string>
+    <string name="moje_prijave">"Moje prijave: "</string>
+    <string name="obrisi_rezervaciju">Obriši rezervaciju</string>
+    <string name="obrisi_prijavu">Obrisi prijavu</string>
+    <string name="obri_ite_prijavu">Obrišite prijavu</string>
+    <string name="moje_konekcije_caps">MOJE KONEKCIJE</string>
+    <string name="osobe_koje_su_se_prijavile_u_isto_mjesto_kao_i_vi">Osobe koje su se prijavile u isto mjesto kao i Vi:</string>
+    <string name="unesite_podatke_za_login">Unesite podatke za login</string>
+    <string name="registracija">Registracija</string>
 </resources>

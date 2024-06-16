@@ -6,14 +6,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -26,12 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     FirebaseUser user;
-    TextView userInfo;
     Button btnLogout;
     BottomNavigationView bottomNavigationView;
     HomeFragment homeFragment=new HomeFragment();
     JobsFragment jobsFragment=new JobsFragment();
-    Job_applicationsFragment job_applicationsFragment=new Job_applicationsFragment();
+    ConnectionsFragment connectionsFragment =new ConnectionsFragment();
 
 
     @Override
@@ -46,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
         auth=FirebaseAuth.getInstance();
-        userInfo=findViewById(R.id.userInfo);
         user=auth.getCurrentUser();
         btnLogout=findViewById(R.id.btnLogout);
 
@@ -86,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                     else if (menuItem.getItemId() == R.id.navigation_jobs_applications) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main,job_applicationsFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main, connectionsFragment).commit();
                         return true;
                     }
 
