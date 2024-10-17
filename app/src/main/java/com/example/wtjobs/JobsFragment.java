@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.AlertDialog;
@@ -37,6 +38,10 @@ public class JobsFragment extends Fragment {
     DatabaseReference databaseReference;
     List<Job> jobList;
 
+    JobsAdapter jobsAdapter;
+
+    SearchView searchView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,7 +56,7 @@ public class JobsFragment extends Fragment {
 
 
         jobList=new ArrayList<>();
-        JobsAdapter jobsAdapter=new JobsAdapter(JobsFragment.this,jobList); //Kreiranje nove istance adaptera te mu se prosljeđuje referenca na fragment i listu objekata tipa Job
+        jobsAdapter=new JobsAdapter(JobsFragment.this,jobList); //Kreiranje nove istance adaptera te mu se prosljeđuje referenca na fragment i listu objekata tipa Job
         recyclerView.setAdapter(jobsAdapter); // Postavljanje adaptera na recyclerView koji će podatke povezati s prikazanim elementima
 
         databaseReference=FirebaseDatabase.getInstance().getReference("jobs"); //Kreiranje reference na bazu podataka za čvor "jobs"
@@ -74,8 +79,31 @@ public class JobsFragment extends Fragment {
             }
         });
 
+        /*
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchJob(newText);
+                return true;
+            }
+        });
+         */
         return view;
     }
+
+
+    /*
+    public void searchJob(String newText)
+    {
+
+    }
+     */
+
 
     public void applyForJob(String jobTitle, String jobLocation)
     {
@@ -111,4 +139,6 @@ public class JobsFragment extends Fragment {
                         });
         }
     }
+
+
 }

@@ -1,7 +1,9 @@
 package com.example.wtjobs;
 
+import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
+
 import android.app.AlertDialog;
-import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +33,8 @@ public class HomeFragment extends Fragment {
     DatabaseReference reference;
     Context context;
 
+    Button btnLogout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +45,15 @@ public class HomeFragment extends Fragment {
         applicationsContainer = view.findViewById(R.id.applicationsContainer);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        btnLogout=view.findViewById(R.id.btnLogout);
+
+        btnLogout.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent= new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+
+        });
 
         if (currentUser != null) {
             String uid = currentUser.getUid();
@@ -58,11 +72,8 @@ public class HomeFragment extends Fragment {
 
                         MyApplications application = new MyApplications(jobTitle, jobLocation);
 
-                        if (application != null) {
-
-                            application.setApplicationID(applicationID);
-                            viewApplication(application);
-                        }
+                        application.setApplicationID(applicationID);
+                        viewApplication(application);
                     }
                 }
 
