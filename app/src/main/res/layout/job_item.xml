@@ -15,7 +15,8 @@
         android:layout_margin="8dp"
         app:cardCornerRadius="18dp"
         app:cardElevation="18dp"
-        android:padding="4dp">
+        android:padding="4dp"
+        app:cardBackgroundColor="#1a1816">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -41,28 +42,32 @@
                     android:layout_height="25dp"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/modernb"/>
 
                 <TextView
                     android:id="@+id/textViewJobTitle"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/textViewJobLocation"/>
+                    android:layout_below="@+id/textViewJobLocation"
+                    android:fontFamily="@font/modernr"/>
 
                 <TextView
                     android:id="@+id/textViewJobWage"
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:layout_below="@+id/textViewJobTitle"
-                    android:layout_marginTop="4dp"/>
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/modernr"/>
 
                 <TextView
                     android:id="@+id/textViewJobDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="98dp"
                     android:layout_below="@+id/textViewJobWage"
                     android:layout_marginTop="6dp"
-                    android:textSize="12sp"/>
+                    android:textSize="13sp"
+                    android:fontFamily="@font/modernr"/>
 
             </RelativeLayout>
 
@@ -72,7 +77,9 @@
                 android:layout_width="170dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="185dp"
-                android:layout_alignParentBottom="true" />
+                android:layout_alignParentBottom="true"
+                android:backgroundTint="#FF6B35"
+                android:fontFamily="@font/modernr"/>
 
         </RelativeLayout>
 

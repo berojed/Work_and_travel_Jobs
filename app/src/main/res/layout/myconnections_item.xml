@@ -25,7 +25,7 @@
                 android:layout_marginBottom="10dp"
                 android:textSize="16sp"
                 android:text="Email"
-                android:fontFamily="sans-serif-medium"/>
+                android:fontFamily="@font/modernr"/>
 
             <TextView
                 android:id="@+id/myConnectionsLocation"
@@ -34,7 +34,7 @@
                 android:layout_marginBottom="10dp"
                 android:textSize="16sp"
                 android:text="Location"
-                android:fontFamily="sans-serif-medium"/>
+                android:fontFamily="@font/modernr"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

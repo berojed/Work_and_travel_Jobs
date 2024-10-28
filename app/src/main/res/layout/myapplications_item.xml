@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="20dp">
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="#1a1816">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,6 +24,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
+                android:fontFamily="@font/modernr"
                 />
 
             <TextView
@@ -31,7 +33,8 @@
                 android:layout_height="30dp"
                 android:layout_below="@+id/myApplicationsJob"
                 android:layout_marginBottom="20dp"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:fontFamily="@font/modernr"/>
 
             <Button
                 android:id="@+id/btnDeleteApplication"
@@ -40,7 +43,9 @@
                 android:layout_marginTop="100dp"
                 android:text="@string/obri_ite_prijavu"
                 android:textAlignment="center"
-                android:layout_marginStart="95dp" />
+                android:layout_marginStart="95dp"
+                android:backgroundTint="#E3242B"
+                android:fontFamily="@font/modernr"/>
 
 
 

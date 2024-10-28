@@ -18,7 +18,8 @@
             android:textSize="24sp"
             android:layout_marginTop="80dp"
             android:textStyle="bold"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:fontFamily="@font/modernb"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -26,7 +27,8 @@
             android:text="@string/osobe_koje_su_se_prijavile_u_isto_mjesto_kao_i_vi"
             android:textSize="16sp"
             android:layout_marginTop="50dp"
-            android:paddingBottom="20dp" />
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/modernr"/>
 
         <LinearLayout
             android:layout_width="match_parent"

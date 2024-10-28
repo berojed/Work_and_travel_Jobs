@@ -38,9 +38,13 @@ public class JobsFragment extends Fragment {
     DatabaseReference databaseReference;
     List<Job> jobList;
 
+    List <Job> filteredList;
+
     JobsAdapter jobsAdapter;
 
     SearchView searchView;
+
+
 
 
     @Override
@@ -56,6 +60,8 @@ public class JobsFragment extends Fragment {
 
 
         jobList=new ArrayList<>();
+        filteredList=new ArrayList<>();
+
         jobsAdapter=new JobsAdapter(JobsFragment.this,jobList); //Kreiranje nove istance adaptera te mu se prosljeđuje referenca na fragment i listu objekata tipa Job
         recyclerView.setAdapter(jobsAdapter); // Postavljanje adaptera na recyclerView koji će podatke povezati s prikazanim elementima
 
@@ -79,7 +85,7 @@ public class JobsFragment extends Fragment {
             }
         });
 
-        /*
+        searchView=view.findViewById(R.id.searchJobview);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -87,22 +93,38 @@ public class JobsFragment extends Fragment {
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                searchJob(newText);
+            public boolean onQueryTextChange(String query) {
+                if(searchView.hasFocus())
+                    searchJob(query);
                 return true;
             }
         });
-         */
+
         return view;
     }
 
 
-    /*
-    public void searchJob(String newText)
+
+    public void searchJob(String query)
     {
+          filteredList.clear();
+
+          for(Job job : jobList)
+          {
+              if(job.getJobTitle().toLowerCase().contains(query.toLowerCase()))
+              {
+                  filteredList.add(job);
+              }
+          }
+          if(!filteredList.isEmpty())
+              jobsAdapter.setJobs(filteredList);
+          else
+              Toast.makeText(getContext(),"Nema rezultata vaše pretrage",Toast.LENGTH_SHORT).show();
+
+
 
     }
-     */
+
 
 
     public void applyForJob(String jobTitle, String jobLocation)

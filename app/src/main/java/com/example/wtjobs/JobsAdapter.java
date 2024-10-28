@@ -1,7 +1,6 @@
 package com.example.wtjobs;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +19,17 @@ import java.util.List;
 
 public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
 
-    private Fragment fragment;
-    private List<Job> jobList;
+    private final Fragment fragment;
+    private  List<Job> jobList;
 
     public JobsAdapter(Fragment fragment, List<Job> jobList) {   //Kontruktor za referencu na fragment i listu poslova
         this.fragment = fragment;
         this.jobList = jobList;
+    }
+
+    public void setJobs(List<Job> jobList) {
+        this.jobList = jobList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -74,6 +78,10 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
             });
 
     }
+
+
+
+
 
     @Override
     public int getItemCount() {

@@ -18,7 +18,7 @@
         android:layout_marginTop="50dp"
         android:textAlignment="center"
         android:textSize="45sp"
-        android:fontFamily="sans-serif-medium"/>
+        android:fontFamily="@font/modernb"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +27,8 @@
         android:paddingBottom="50dp"
         android:text="@string/unesite_podatke_za_login"
         android:textSize="25sp"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:fontFamily="@font/modernr"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -72,7 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:text="@string/login"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck"
+        android:fontFamily="@font/modernr"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +82,8 @@
         android:text="@string/donthaveaccount"
         android:layout_marginStart="230dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/registerNow" />
+        android:id="@+id/registerNow"
+        android:fontFamily="@font/modernr"/>
 
 
 
