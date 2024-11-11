@@ -1,9 +1,6 @@
-package com.example.wtjobs;
-
-import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
+package com.example.wtjobs.fragments;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.wtjobs.R;
+import com.example.wtjobs.models.MyApplications;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,33 +26,26 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.content.Context;
 
-public class HomeFragment extends Fragment {
+public class ApplicationsFragment extends Fragment {
 
     LinearLayout applicationsContainer;
     DatabaseReference reference;
     Context context;
 
-    Button btnLogout;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_applications, container, false);
         context = view.getContext();
 
         applicationsContainer = view.findViewById(R.id.applicationsContainer);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        btnLogout=view.findViewById(R.id.btnLogout);
 
-        btnLogout.setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
-            Intent intent= new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-
-        });
 
         if (currentUser != null) {
             String uid = currentUser.getUid();

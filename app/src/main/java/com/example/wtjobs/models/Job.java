@@ -1,4 +1,4 @@
-package com.example.wtjobs;
+package com.example.wtjobs.models;
 
 public class Job {
     private  String jobDescription;

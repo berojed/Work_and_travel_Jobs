@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.wtjobs.fragments.JobsFragment;
+import com.example.wtjobs.models.Job;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -3,41 +3,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ConnectionsFragment"
-    android:orientation="vertical">
+    tools:context=".fragments.ApplicationsFragment"
+    android:orientation="vertical"
+    android:layout_marginBottom="80dp">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+
+
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/moje_konekcije_caps"
-            android:textSize="24sp"
-            android:layout_marginTop="80dp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:fontFamily="@font/modernb"/>
+            android:src="@drawable/ic_round"
+            android:layout_marginTop="100dp"
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/osobe_koje_su_se_prijavile_u_isto_mjesto_kao_i_vi"
-            android:textSize="16sp"
-            android:layout_marginTop="50dp"
-            android:paddingBottom="20dp"
-            android:fontFamily="@font/modernr"/>
+            android:textAlignment="center"
+            android:textSize="44sp"
+            android:layout_marginTop="10dp"
+            android:text="@string/app_name"
+            android:fontFamily="@font/modernr"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/moje_prijave"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"/>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp"
-            android:id="@+id/connectionsContainer" />
+            android:id="@+id/applicationsContainer" />
+
+
 
     </LinearLayout>
+
 
 
 </ScrollView>

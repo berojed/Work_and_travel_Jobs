@@ -3,15 +3,17 @@ package com.example.wtjobs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 
+import com.example.wtjobs.fragments.ConnectionsFragment;
+import com.example.wtjobs.fragments.ApplicationsFragment;
+import com.example.wtjobs.fragments.HomeFragment;
+import com.example.wtjobs.fragments.JobsFragment;
+import com.example.wtjobs.fragments.MyAccountFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.FirebaseApp;
@@ -25,9 +27,13 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
 
     BottomNavigationView bottomNavigationView;
-    HomeFragment homeFragment=new HomeFragment();
+    ApplicationsFragment applicationsFragment=new ApplicationsFragment();
     JobsFragment jobsFragment=new JobsFragment();
     ConnectionsFragment connectionsFragment =new ConnectionsFragment();
+
+    HomeFragment homeFragment=new HomeFragment();
+
+    MyAccountFragment myAccountFragment=new MyAccountFragment();
 
 
     @Override
@@ -68,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.main,jobsFragment).commit();
                         return true;
                     }
-                    else if (menuItem.getItemId() == R.id.navigation_jobs_applications) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main, connectionsFragment).commit();
+                    else if (menuItem.getItemId() == R.id.navigation_my_account) {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main,myAccountFragment).commit();
                         return true;
                     }
 

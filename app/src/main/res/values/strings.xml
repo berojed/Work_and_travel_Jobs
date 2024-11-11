@@ -17,7 +17,7 @@
     <string name="title_activity_main2">MainActivity2</string>
     <string name="apply">Dostupni poslovi</string>
     <string name="prijava">Prijava</string>
-    <string name="moje_konekcije">Moje konekcije</string>
+    <string name="moj_racun">Moj račun</string>
     <string name="moje_prijave">"Moje prijave: "</string>
     <string name="obrisi_rezervaciju">Obriši rezervaciju</string>
     <string name="obrisi_prijavu">Obrisi prijavu</string>
@@ -27,4 +27,5 @@
     <string name="unesite_podatke_za_login">Unesite podatke za login</string>
     <string name="registracija">Registracija</string>
     <string name="pretrazite_poslove">Pretražite poslove</string>
+    <string name="moj_racunn">Moj račun</string>
 </resources>

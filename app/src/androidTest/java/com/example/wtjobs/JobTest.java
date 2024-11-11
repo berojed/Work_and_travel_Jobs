@@ -2,6 +2,8 @@ package com.example.wtjobs;
 
 import static org.junit.Assert.assertEquals;
 
+import com.example.wtjobs.models.Job;
+
 import org.junit.Test;
 
 public class JobTest {
