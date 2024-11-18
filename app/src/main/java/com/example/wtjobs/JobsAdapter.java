@@ -67,11 +67,12 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
                         int position= holder.getBindingAdapterPosition();
                         String jobTitle=jobList.get(position).getJobTitle();
                         String jobLocation=jobList.get(position).getJobLocation();
+                        String jobApplicationStatus="U obradi";
 
 
                         new AlertDialog.Builder(v.getContext()).setTitle("Potvrda prijave").setMessage("Da li ste sigurni da želite prijaviti za posao "+jobTitle+" u "+jobLocation+"?")
                                 .setPositiveButton("Da", (dialog, which) -> {
-                                    ((JobsFragment) fragment).applyForJob(jobTitle, jobLocation);
+                                    ((JobsFragment) fragment).applyForJob(jobTitle, jobLocation,jobApplicationStatus);
                                 }
                                 ).setNegativeButton("Ne", null).show();
 

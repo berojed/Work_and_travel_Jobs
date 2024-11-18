@@ -126,7 +126,7 @@ public class JobsFragment extends Fragment {
 
 
 
-    public void applyForJob(String jobTitle, String jobLocation)
+    public void applyForJob(String jobTitle, String jobLocation,String jobApplicationStatus)
     {
         FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser!=null)
@@ -141,7 +141,7 @@ public class JobsFragment extends Fragment {
 
             String applicationID=databaseReference1.push().getKey();
 
-            JobApplications jobApplications=new JobApplications(userGmail,jobTitlee,jobLocationn);
+            JobApplications jobApplications=new JobApplications(userGmail,jobTitlee,jobLocationn,jobApplicationStatus);
 
 
                 databaseReference1.child(applicationID).setValue(jobApplications)

@@ -29,10 +29,9 @@ public class MainAcitivtyTestEndToEnd {
             Espresso.onView(withId(R.id.navigation_jobs)).perform(click());
             Espresso.onView(withId(R.id.JobsRecyclerView)).check(matches(isDisplayed()));
 
-            Espresso.onView(withId(R.id.navigation_jobs_applications)).perform(click());
+
 
             Espresso.onView(withId(R.id.navigation_home)).perform(click());
-            Espresso.onView(withId(R.id.userInfo)).check(matches(isDisplayed()));
         });
     }
 

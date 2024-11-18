@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
     }
 
     DatabaseReference databaseReference;
-    LinearLayout containerLast3Applications,containerLast3ApplicationsTouchable;
+    LinearLayout containerLast3Applications,containerLast3ApplicationsTouchable,containerLast3ApplicationsStatus;
 
     Context context;
 
@@ -53,6 +53,7 @@ public class HomeFragment extends Fragment {
 
         containerLast3Applications = view.findViewById(R.id.containerLast3Applications);
         containerLast3ApplicationsTouchable=view.findViewById(R.id.containerLast3ApplicationsTouchable);
+        containerLast3ApplicationsStatus=view.findViewById(R.id.containerLast3ApplicationsStatus);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("applications");
 
@@ -98,6 +99,23 @@ public class HomeFragment extends Fragment {
                         textView.setTextColor(Color.WHITE);
                         containerLast3Applications.addView(textView);
                     }
+
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    String jobApplicationStatus=dataSnapshot.child("jobApplicationStatus").getValue(String.class);
+
+                    TextView textView=new TextView(getContext());
+                    textView.setText(jobApplicationStatus);
+                    textView.setPadding(10,10,10,10);
+                    textView.setTextSize(20);
+                    if(textView.equals("Prihvaćeno"))
+                        textView.setTextColor(Color.GREEN);
+                    else if(textView.equals("Odbijeno"))
+                        textView.setTextColor(Color.RED);
+                    else
+                        textView.setTextColor(Color.YELLOW);
+                    containerLast3ApplicationsStatus.addView(textView);
+                }
 
             }
 

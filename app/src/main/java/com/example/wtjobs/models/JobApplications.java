@@ -6,10 +6,14 @@ public class JobApplications {
     private String jobTitlee;
     private String jobLocationn;
 
-    public JobApplications(String userGmail, String jobTitlee, String jobLocationn) {
+    private String jobApplicationStatus;
+
+    public JobApplications(String userGmail, String jobTitlee, String jobLocationn, String jobApplicationStatus) {
         this.userGmail = userGmail;
         this.jobTitlee = jobTitlee;
         this.jobLocationn = jobLocationn;
+        this.jobApplicationStatus = jobApplicationStatus;
+
     }
 
     public String getUserGmail() {
@@ -20,6 +24,8 @@ public class JobApplications {
     public String getJobLocationn() {
         return jobLocationn;
     }
+
+    public String getJobApplicationStatus() {return jobApplicationStatus;}
 
 
 }
