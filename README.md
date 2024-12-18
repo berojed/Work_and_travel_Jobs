@@ -1,0 +1,1 @@
+Students have selection of jobs from which they can apply to and afterwards have ability to see their selection. App also provides feature where students can see contact information of all students that applied to same position, in case they want to make contact with each other before their departure.
