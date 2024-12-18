@@ -29,6 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeFragment extends Fragment {
 
 
@@ -37,7 +40,8 @@ public class HomeFragment extends Fragment {
     }
 
     DatabaseReference databaseReference;
-    LinearLayout containerLast3Applications,containerLast3ApplicationsTouchable,containerLast3ApplicationsStatus;
+    LinearLayout containerLast3Applications,containerLast3ApplicationsTouchable,
+            containerLast3ApplicationsStatus,containerLast3Connections,containerLast3ConnectionsTouchable,containerLast3ConnectionsLocation;
 
     Context context;
 
@@ -54,10 +58,15 @@ public class HomeFragment extends Fragment {
         containerLast3Applications = view.findViewById(R.id.containerLast3Applications);
         containerLast3ApplicationsTouchable=view.findViewById(R.id.containerLast3ApplicationsTouchable);
         containerLast3ApplicationsStatus=view.findViewById(R.id.containerLast3ApplicationsStatus);
+        containerLast3Connections=view.findViewById(R.id.containerLast3Connections);
+        containerLast3ConnectionsTouchable=view.findViewById(R.id.containerLast3ConnectionsTouchable);
+        containerLast3ConnectionsLocation=view.findViewById(R.id.containerLast3ConnectionsLocation);
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("applications");
 
         fetchAndDisplayLast3Applications();
+        fetchAndDisplayLast3Connections();
 
         containerLast3ApplicationsTouchable.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +75,14 @@ public class HomeFragment extends Fragment {
                 FragmentManager fm=getActivity().getSupportFragmentManager();
                 fm.beginTransaction().replace(R.id.main,new ApplicationsFragment()).addToBackStack(null).commit();
 
+            }
+        });
+
+        containerLast3ConnectionsTouchable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm=getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(R.id.main,new ConnectionsFragment()).addToBackStack(null).commit();
             }
         });
 
@@ -126,7 +143,91 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    public  void  fetchAndDisplayLast3Connections()
+    {
+        FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        String currentUserUid=currentUser.getUid();
+        DatabaseReference userReference=FirebaseDatabase.getInstance().getReference().child("applications").child(currentUserUid);
+        List<String> userLocations=new ArrayList<>();
+
+        userReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    String jobLocation=dataSnapshot.child("jobLocationn").getValue(String.class);
+                    userLocations.add(jobLocation);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
 
 
+        });
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+
+                for(DataSnapshot userSnapshot:snapshot.getChildren())
+                {
+
+                    String otherUserID=userSnapshot.getKey();
+
+                    for(DataSnapshot applicationSnapshot:userSnapshot.getChildren())
+                    {
+                        if(!otherUserID.equals(currentUserUid))
+                        {
+                            String otherUserLocation=applicationSnapshot.child("jobLocationn").getValue(String.class);
+                            String otherUserEmail=applicationSnapshot.child("userGmail").getValue(String.class);
+
+
+                            if(userLocations.contains(otherUserLocation))
+                            {
+                                TextView textView=new TextView(getContext());
+                                textView.setText(otherUserEmail);
+                                textView.setPadding(10,10,10,10);
+                                textView.setTextSize(20);
+                                textView.setTextColor(Color.WHITE);
+                                containerLast3Connections.addView(textView);
+
+                                TextView textView2=new TextView(getContext());
+                                textView2.setText(otherUserLocation);
+                                textView2.setPadding(50,10,10,10);
+                                textView2.setTextSize(20);
+                                textView2.setTextColor(Color.BLACK);
+                                containerLast3ConnectionsLocation.addView(textView2);
+                            }
+
+
+                        }
+
+
+
+                    }
+
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                Toast.makeText(context, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
 
 }
+
