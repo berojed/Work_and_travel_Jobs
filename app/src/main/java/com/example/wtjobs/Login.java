@@ -15,6 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.wtjobs.kotlinUI.screens.EmployerPageKt;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -99,9 +100,19 @@ public class Login extends AppCompatActivity {
                                 if (task.isSuccessful()) {
 
                                     Toast.makeText(getApplicationContext(),"Uspješna prijava", Toast.LENGTH_SHORT).show();
-                                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                    if(Email.equals("admin@admin.com"))
+                                    {
+                                        Intent intent=new Intent(getApplicationContext(), EmployerActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                    else
+                                    {
+                                        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
 
                                 } else {
 
@@ -114,8 +125,6 @@ public class Login extends AppCompatActivity {
                         });
             }
         });
-
-
 
 
     }
