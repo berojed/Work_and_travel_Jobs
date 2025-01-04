@@ -47,9 +47,9 @@ The **Work and Travel Jobs** app is tailored to help users find and apply for se
 
 ## Screenshots
 
-![Home Screen](screenshots/home_screen.png)
-![Job Listings](screenshots/job_listings.png)
-![Application Status](screenshots/application_status.png)
+![Home Screen](screenshots/homeScreenshot.png)
+![Job Listings](screenshots/jobsScreenshot.png)
+![Account](screenshots/accountScreenshot.png)
 
 ## Installation
 
