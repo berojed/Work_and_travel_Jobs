@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="20dp">
+        app:cardElevation="20dp"
+        android:backgroundTint="#1a1816">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:textSize="16sp"
-                android:fontFamily="@font/modernr"/>
+                android:fontFamily="@font/modernr"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/myConnectionsLocation"
@@ -32,7 +34,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:textSize="16sp"
-                android:fontFamily="@font/modernr"/>
+                android:fontFamily="@font/modernr"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ApplicationsFragment"
     android:orientation="vertical"
-    android:layout_marginBottom="80dp">
+    android:layout_marginBottom="80dp"
+    android:layout_marginTop="30dp">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -16,32 +17,49 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
-
-        <ImageView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_round"
-            android:layout_marginTop="100dp"
-            />
+            android:layout_height="150dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="44sp"
-            android:layout_marginTop="10dp"
-            android:text="@string/app_name"
-            android:fontFamily="@font/modernr"
-            />
+            <LinearLayout
+                android:layout_width="230dp"
+                android:layout_height="140dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="26sp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/WorkandTravel"
+                    android:fontFamily="@font/modernm"
+                    android:textColor="@color/white"
+                    />
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/moje_prijave"
-            android:layout_marginTop="30dp"
-            android:textSize="20sp"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_round"
+                    android:layout_marginStart="150dp"
+                    />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Jobs"
+                android:layout_marginTop="120dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/modernm"/>
+
+        </LinearLayout>
+
 
 
 
@@ -50,6 +68,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/applicationsContainer" />
 
 

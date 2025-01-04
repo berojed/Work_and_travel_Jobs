@@ -1,4 +1,4 @@
-package com.example.wtjobs;
+package com.example.wtjobs.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 
+import com.example.wtjobs.LoginAndRegistration.Login;
+import com.example.wtjobs.R;
 import com.example.wtjobs.fragments.ConnectionsFragment;
 import com.example.wtjobs.fragments.ApplicationsFragment;
 import com.example.wtjobs.fragments.HomeFragment;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         user=auth.getCurrentUser();
 
 
-        if(user==null)
+        if(user==null )
         {
             Intent intent=new Intent(getApplicationContext(), Login.class);
             startActivity(intent);

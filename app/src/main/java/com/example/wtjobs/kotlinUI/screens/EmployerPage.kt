@@ -8,7 +8,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.wtjobs.kotlinUI.EmployerPageViewModel
 import com.example.wtjobs.kotlinUI.components.BottomNavigationBar
-import com.example.wtjobs.kotlinUI.components.TopBar
 import com.example.wtjobs.kotlinUI.navigation.NavigationGraph
 
 
@@ -18,7 +17,6 @@ fun EmployerPage(viewModel: EmployerPageViewModel = viewModel())
 
     val navController = rememberNavController()
    Scaffold(
-       topBar = { TopBar(onLogoutClick = { /*TODO*/ }) },
        bottomBar = {BottomNavigationBar(navController)}
    ) {
        padding->

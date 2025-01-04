@@ -19,6 +19,7 @@
         android:textStyle="bold"
         android:textSize="30sp"
         android:fontFamily="@font/modernb"
+        android:textColor="@color/white"
         />
     
     <SearchView

@@ -16,8 +16,20 @@
         android:theme="@style/Theme.WtJobs"
         tools:targetApi="31">
 
+
+
         <activity
-            android:name=".EmployerActivity"
+            android:name=".LoginAndRegistration.Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Activities.EmployerActivity"
             android:exported="true">
 
             <intent-filter>
@@ -28,24 +40,14 @@
 
         </activity>
 
-        <activity
-            android:name=".Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
 
 
 
         <activity
-            android:name=".Registration"
+            android:name=".LoginAndRegistration.Registration"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="false" />
 
 

@@ -31,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -125,9 +126,9 @@ public class HomeFragment extends Fragment {
                     textView.setText(jobApplicationStatus);
                     textView.setPadding(10,10,10,10);
                     textView.setTextSize(20);
-                    if(textView.equals("Prihvaćeno"))
+                    if(Objects.equals(jobApplicationStatus, "accepted"))
                         textView.setTextColor(Color.GREEN);
-                    else if(textView.equals("Odbijeno"))
+                    else if(Objects.equals(jobApplicationStatus,"rejected"))
                         textView.setTextColor(Color.RED);
                     else
                         textView.setTextColor(Color.YELLOW);

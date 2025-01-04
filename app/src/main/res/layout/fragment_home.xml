@@ -8,7 +8,7 @@
     android:layout_marginBottom="80dp"
     android:background="#1a1816">
 
-    <!-- TODO: Update blank fragment layout -->
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,12 +37,7 @@
                 android:layout_marginTop="70dp"
                 android:layout_marginStart="10dp" />
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:src="@drawable/bell"
-                android:layout_marginTop="60dp"
-                android:layout_marginStart="30dp"/>
+           ž
 
 
 
@@ -60,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Moje prijave"
+                android:text="My applications"
                 android:textSize="30sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/modernb"
@@ -100,7 +95,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Moje konekcije"
+                android:text="My connections"
                 android:textSize="30sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/modernb"

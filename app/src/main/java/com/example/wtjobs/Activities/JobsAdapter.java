@@ -1,4 +1,4 @@
-package com.example.wtjobs;
+package com.example.wtjobs.Activities;
 
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.wtjobs.R;
 import com.example.wtjobs.fragments.JobsFragment;
 import com.example.wtjobs.models.Job;
 import com.squareup.picasso.Picasso;
@@ -45,17 +46,17 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
     public void onBindViewHolder(@NonNull JobsViewHolder holder, int position) {
 
             //Dohvaćanje odgovarajućih podataka za pojedinačnu stavku i postavljanje u odgovarajući textView
-            holder.jobDescription.setText("Opis: "+jobList.get(position).getJobDescription());
+            holder.jobDescription.setText("Description: "+jobList.get(position).getJobDescription());
 
             holder.jobLocation.setText(jobList.get(position).getJobLocation());
 
             //Provjera za poziciju(server,busser,bartender i foodrunner dobivaju tipse) i postavljanje odgovarajuće satnice
             if(jobList.get(position).getJobTitle().equals("Server") || jobList.get(position).getJobTitle().equals("Busser") || jobList.get(position).getJobTitle().equals("Bartender") || jobList.get(position).getJobTitle().equals("Food Runner"))
-                 holder.jobWage.setText("Satnica: " + jobList.get(position).getJobWage() + " $/h + tips");
+                 holder.jobWage.setText("Hourly wage: " + jobList.get(position).getJobWage() + " $/h + tips");
             else
-                holder.jobWage.setText("Satnica: " + jobList.get(position).getJobWage() + " $/h");
+                holder.jobWage.setText("Hourly wage: " + jobList.get(position).getJobWage() + " $/h");
 
-            holder.jobTitle.setText("Pozicija: " + jobList.get(position).getJobTitle());
+            holder.jobTitle.setText("Job title: " + jobList.get(position).getJobTitle());
             //Korištenje picasso biblioteke za učitavanje slika posla sa URL-om iz jobList i postavljanje u ImageView jobImage, dok se učitava slika prikazuje se loading_icon
             Picasso.get().load(jobList.get(position).getJobImage()).into(holder.jobImage);
 
@@ -67,14 +68,14 @@ public class JobsAdapter extends RecyclerView.Adapter<JobsViewHolder> {
                         int position= holder.getBindingAdapterPosition();
                         String jobTitle=jobList.get(position).getJobTitle();
                         String jobLocation=jobList.get(position).getJobLocation();
-                        String jobApplicationStatus="U obradi";
+                        String jobApplicationStatus="pending";
 
 
-                        new AlertDialog.Builder(v.getContext()).setTitle("Potvrda prijave").setMessage("Da li ste sigurni da želite prijaviti za posao "+jobTitle+" u "+jobLocation+"?")
-                                .setPositiveButton("Da", (dialog, which) -> {
+                        new AlertDialog.Builder(v.getContext()).setTitle("Confirm application").setMessage("Are you sure that you want to apply for "+jobTitle+" in "+jobLocation+"?")
+                                .setPositiveButton("Yes", (dialog, which) -> {
                                     ((JobsFragment) fragment).applyForJob(jobTitle, jobLocation,jobApplicationStatus);
                                 }
-                                ).setNegativeButton("Ne", null).show();
+                                ).setNegativeButton("No", null).show();
 
                     }
                 }

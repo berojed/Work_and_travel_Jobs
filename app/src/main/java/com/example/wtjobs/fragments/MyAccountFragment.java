@@ -1,7 +1,5 @@
 package com.example.wtjobs.fragments;
 
-import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,7 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.wtjobs.Login;
+import com.example.wtjobs.LoginAndRegistration.Login;
 import com.example.wtjobs.R;
 import com.google.firebase.auth.FirebaseAuth;
 

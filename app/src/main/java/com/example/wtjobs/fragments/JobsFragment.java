@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.wtjobs.JobsAdapter;
+import com.example.wtjobs.Activities.JobsAdapter;
 import com.example.wtjobs.R;
 import com.example.wtjobs.models.Job;
 import com.example.wtjobs.models.JobApplications;
@@ -118,7 +118,7 @@ public class JobsFragment extends Fragment {
           if(!filteredList.isEmpty())
               jobsAdapter.setJobs(filteredList);
           else
-              Toast.makeText(getContext(),"Nema rezultata vaše pretrage",Toast.LENGTH_SHORT).show();
+              Toast.makeText(getContext(),"No result for your search",Toast.LENGTH_SHORT).show();
 
 
 
@@ -150,11 +150,11 @@ public class JobsFragment extends Fragment {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful())
                                 {
-                                    Toast.makeText(getContext(),"Prijava uspješno poslana",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(),"Application successfully sent",Toast.LENGTH_SHORT).show();
                                 }
                                 else
                                 {
-                                    Toast.makeText(getContext(),"Prijava nije poslana",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(),"Application has not been sent",Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

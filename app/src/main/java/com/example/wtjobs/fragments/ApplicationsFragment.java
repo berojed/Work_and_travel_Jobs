@@ -1,6 +1,7 @@
 package com.example.wtjobs.fragments;
 
 import android.app.AlertDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -25,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.content.Context;
+
+import java.util.Objects;
 
 public class ApplicationsFragment extends Fragment {
 
@@ -61,8 +64,9 @@ public class ApplicationsFragment extends Fragment {
                         String applicationID = dataSnapshot.getKey();
                         String jobTitle = dataSnapshot.child("jobTitlee").getValue(String.class);
                         String jobLocation = dataSnapshot.child("jobLocationn").getValue(String.class);
+                        String jobApplicationStatus = dataSnapshot.child("jobApplicationStatus").getValue(String.class);
 
-                        MyApplications application = new MyApplications(jobTitle, jobLocation);
+                        MyApplications application = new MyApplications(jobTitle, jobLocation,jobApplicationStatus);
 
                         application.setApplicationID(applicationID);
                         viewApplication(application);
@@ -84,20 +88,34 @@ public class ApplicationsFragment extends Fragment {
 
         TextView myjobTitle = applicationView.findViewById(R.id.myApplicationsJob);
         TextView myjobLocation = applicationView.findViewById(R.id.myApplicationsLocation);
+        TextView myjobStatus = applicationView.findViewById(R.id.myApplicationsStatus);
         Button btnDeleteJobApplication=applicationView.findViewById(R.id.btnDeleteApplication);
 
+        if(Objects.equals(application.getJobApplicationStatus(), "accepted"))
+        {
+            myjobStatus.setTextColor(Color.GREEN);
+        }
+        else if (Objects.equals(application.getJobApplicationStatus(),"rejected"))
+        {
+            myjobStatus.setTextColor(Color.RED);
+        }
+        else
+        {
+            myjobStatus.setTextColor(Color.YELLOW);
+        }
 
-        myjobTitle.setText("Odabrani posao: " + application.getJobTitle());
-        myjobLocation.setText("Odabrana lokacija: " + application.getJobLocation());
+        myjobTitle.setText("Selected position: " + application.getJobTitle());
+        myjobLocation.setText("Selected location: " + application.getJobLocation());
+        myjobStatus.setText("Application status: " +  application.getJobApplicationStatus());
 
         btnDeleteJobApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(v.getContext()).setTitle("Potvrda brisanja prijave za posao").setMessage("Da li ste sigurni da želite  obrisati ovu prijavu za posao?")
-                                .setPositiveButton("Da", (dialog, which) -> {
+                new AlertDialog.Builder(v.getContext()).setTitle("Confirm deleting your application").setMessage("Are you sure that you want to delete this application?")
+                                .setPositiveButton("Yes", (dialog, which) -> {
                                             deleteApplication(application.getApplicationID());
                                         }
-                                    ).setNegativeButton("Ne", null).show();
+                                    ).setNegativeButton("No", null).show();
 
 
             }
@@ -122,11 +140,11 @@ public class ApplicationsFragment extends Fragment {
                     if(task.isSuccessful())
                     {
 
-                        Toast.makeText(context, "Prijava za posao obrisana!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Job application successfully deleted!", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
-                        Toast.makeText(context, "Greška pri brisanju prijave za posao!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "There was an error while deleting your application!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="20dp"
         app:cardBackgroundColor="#1a1816">
@@ -25,6 +25,7 @@
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
                 android:fontFamily="@font/modernr"
+                android:textColor="@color/white"
                 />
 
             <TextView
@@ -32,18 +33,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_below="@+id/myApplicationsJob"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/modernr"/>
+                android:fontFamily="@font/modernr"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/myApplicationsStatus"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textSize="20sp"
+                android:layout_below="@+id/myApplicationsLocation"
+                android:fontFamily="@font/modernr"
+                android:textColor="@color/white"
+                />
 
             <Button
                 android:id="@+id/btnDeleteApplication"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_marginTop="100dp"
-                android:text="@string/obri_ite_prijavu"
+                android:layout_height="50dp"
+                android:layout_marginTop="130dp"
+                android:text="@string/delete_application"
                 android:textAlignment="center"
-                android:layout_marginStart="95dp"
+                android:layout_marginStart="85dp"
                 android:backgroundTint="#E3242B"
                 android:fontFamily="@font/modernr"/>
 

@@ -4,14 +4,17 @@ public class MyApplications {
     private  String jobLocationn;
     private  String jobTitlee;
 
+    private String jobApplicationStatus;
+
     private String applicationID;
 
 
     public  MyApplications() {}
 
-    public MyApplications( String jobTitlee, String jobLocationn) {
+    public MyApplications( String jobTitlee, String jobLocationn, String jobApplicationStatus) {
         this.jobTitlee = jobTitlee;
         this.jobLocationn = jobLocationn;
+        this.jobApplicationStatus = jobApplicationStatus;
     }
 
 
@@ -33,6 +36,9 @@ public class MyApplications {
         this.jobTitlee = jobTitlee;
     }
 
+    public String getJobApplicationStatus() {return jobApplicationStatus;}
+
+    public void setJobApplicationStatus(String jobApplicationStatus) {this.jobApplicationStatus=jobApplicationStatus;}
 
     public String getApplicationID() {return applicationID;}
     public void setApplicationID(String applicationID) {this.applicationID = applicationID;}
