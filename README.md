@@ -47,9 +47,21 @@ The **Work and Travel Jobs** app is tailored to help users find and apply for se
 
 ## Screenshots
 
-![Home Screen](screenshots/homeScreenshot.png)
-![Job Listings](screenshots/jobsScreenshot.png)
-![Account](screenshots/accountScreenshot.png)
+### Home Screen
+<a href="screenshots/homeScreenshot.png">
+  <img src="screenshots/homeScreenshot.png" alt="Home Screen" width="250" height="500">
+</a>
+
+### Job Listings Screen
+<a href="screenshots/image.png">
+  <img src="screenshots/image.png" alt="Job Listings" width="250" height="500">
+</a>
+
+### Account Screen
+<a href="screenshots/accountScreenshot.png">
+  <img src="screenshots/accountScreenshot.png" alt="Account Screen" width="250" height="500">
+</a>
+
 
 ## Installation
 
@@ -57,7 +69,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/work-and-travel-jobs.git
+    git clone https://github.com/berojed/Work_and_travel_Jobs.git
     ```
 
 2. **Navigate to the project directory**:
